@@ -1,0 +1,17 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "inicpp_internal",
+    hdrs = glob(["include/inicpp/*.h"]),
+    strip_include_prefix = "include/inicpp",
+)
+
+cc_library(
+    name = "inicpp",
+    srcs = glob(["src/*.cpp"]),
+    hdrs = glob(["include/inicpp/*.h"]),
+    linkstatic = True,
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [":inicpp_internal"],
+)

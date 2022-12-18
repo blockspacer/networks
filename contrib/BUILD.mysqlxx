@@ -1,0 +1,12 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "mysqlxx",
+    srcs = glob(["lib/*.cpp"]),
+    hdrs = glob(["lib/*.h"]),
+    linkopts = ["-lmysqlclient"],
+    linkstatic = True,
+    strip_include_prefix = "lib",
+    visibility = ["//visibility:public"],
+    copts = ["-I/usr/include/mysql"],
+)

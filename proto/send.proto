@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "proto/message.proto";
+import "proto/status.proto";
+
+package proto;
+
+message SendRequest {
+  Message message = 1;
+}
+
+message SendResponse {
+  Status status = 1;
+}

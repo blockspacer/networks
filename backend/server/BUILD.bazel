@@ -1,0 +1,12 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "chat.server",
+    srcs = ["main.cc"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//backend",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+    ],
+)

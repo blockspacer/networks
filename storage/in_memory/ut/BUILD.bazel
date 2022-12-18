@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+cc_test(
+    name = "test.storage.in_memory",
+    srcs = ["storage_ut.cc"],
+    deps = [
+        "//storage/in_memory:in_memory_storage_internal",
+        "@com_google_googletest//:gtest_main",
+    ],
+)

@@ -1,0 +1,45 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@rules_cc//cc:defs.bzl", "cc_proto_library")
+load("@com_github_grpc_grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
+
+proto_library(
+    name = "message",
+    srcs = [
+        "message.proto",
+    ],
+)
+
+cc_proto_library(
+    name = "rpc_message",
+    visibility = ["//visibility:public"],
+    deps = [":message"],
+)
+
+proto_library(
+    name = "rpc_service_proto",
+    srcs = [
+        "from.proto",
+        "receive.proto",
+        "rpc_service.proto",
+        "send.proto",
+        "status.proto",
+    ],
+    deps = [":message"],
+)
+
+cc_proto_library(
+    name = "rpc_service_proto_cc",
+    deps = [":rpc_service_proto"],
+)
+
+cc_grpc_library(
+    name = "rpc_service",
+    srcs = [
+        ":rpc_service_proto",
+    ],
+    grpc_only = True,
+    visibility = ["//visibility:public"],
+    deps = [
+        ":rpc_service_proto_cc",
+    ],
+)

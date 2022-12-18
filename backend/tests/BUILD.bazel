@@ -1,0 +1,16 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "user_groups_test",
+    srcs = ["user_groups_test.cc"],
+    deps = ["//backend"],
+)
+
+cc_binary(
+    name = "client_for_test",
+    srcs = ["server_test.cc"],
+    deps = [
+        "//backend",
+        "@com_github_grpc_grpc//:grpc++",
+    ],
+)

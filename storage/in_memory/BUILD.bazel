@@ -1,0 +1,24 @@
+load("//bazel:dll.bzl", "cc_shared_library")
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "in_memory_storage_internal",
+    srcs = ["in_memory_storage.cc"],
+    hdrs = ["in_memory_storage.h"],
+    linkstatic = True,
+    visibility = ["//storage/in_memory:__subpackages__"],
+    deps = [
+        "//storage:storage_api",
+        "@com_google_absl//absl/container:btree",
+        "@com_google_absl//absl/container:flat_hash_map",
+        "@com_google_absl//absl/container:flat_hash_set",
+    ],
+)
+
+cc_shared_library(
+    name = "in_memory_storage",
+    srcs = ["api.cc"],
+    hdrs = ["api.h"],
+    visibility = ["//visibility:public"],
+    deps = [":in_memory_storage_internal"],
+)

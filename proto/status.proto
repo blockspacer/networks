@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package proto;
+
+enum Status {
+  kOk = 0;
+  kError = 1;
+}

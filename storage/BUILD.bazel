@@ -1,0 +1,27 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "storage_api",
+    srcs = [
+        "api.cc",
+        "storage.cc",
+    ],
+    hdrs = [
+        "api.h",
+        "config.h",
+        "storage.h",
+        "storage_lock.h",
+    ],
+    linkstatic = True,
+    visibility = ["//visibility:public"],
+    deps = [
+        "//core",
+        "//proto:rpc_message",
+    ],
+)
+
+cc_binary(
+    name = "simple_test_using_dll",
+    srcs = ["simple_test.cc"],
+    deps = [":storage_api"],
+)

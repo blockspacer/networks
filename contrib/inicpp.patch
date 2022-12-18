@@ -1,0 +1,22 @@
+diff --git a/include/inicpp/option.h b/include/inicpp/option.h
+index 6534ceb..6676716 100644
+--- a/include/inicpp/option.h
++++ b/include/inicpp/option.h
+@@ -49,7 +49,7 @@ namespace inicpp
+ 			}
+ 		}
+ 
+-		template <> string_ini_t convert_single_value(const option_value &value, const std::string &)
++		template <> [[maybe_unused]] string_ini_t convert_single_value(const option_value &value, const std::string &)
+ 		{
+ 			// disable compiler warning that this function is unused when building the library
+ 			(void) convert_single_value<string_ini_t>;
+@@ -222,7 +222,7 @@ namespace inicpp
+ 		template <typename ValueType> void set_list(const std::vector<ValueType> &list)
+ 		{
+ 			values_.clear();
+-			for (const auto &item : list) { add_to_list(item); }
++			for (const auto &item : list) { add_to_list<ValueType>(item); }
+ 		}
+ 
+ 		/**

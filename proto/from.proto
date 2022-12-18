@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "proto/message.proto";
+import "proto/status.proto";
+
+package proto;
+
+message FromRequest {
+    string user = 1;
+};
+
+message FromResponse {
+    Status status = 1;
+    repeated Message messages = 2;
+};

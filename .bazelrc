@@ -1,0 +1,2 @@
+build --cxxopt -std=c++17 --cxxopt -Wno-sign-compare --copt -Wno-array-parameter
+build --linkopt -rdynamic

@@ -1,0 +1,16 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "backend",
+    srcs = glob(["*.cc"]),
+    hdrs = glob(["*.h"]),
+    linkstatic = True,
+    visibility = ["//backend:__subpackages__"],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+        "@inicpp",
+        "//proto:rpc_service",
+        "//storage:storage_api",
+        "@spdlog",
+    ],
+)

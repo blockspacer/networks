@@ -1,0 +1,52 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+load("//bazel:dll.bzl", "cc_shared_library")
+
+cc_library(
+    name = "database_config",
+    srcs = ["config.cc"],
+    hdrs = ["config.h"],
+    linkstatic = True,
+    deps = [
+        "//core",
+        "@inicpp",
+    ],
+)
+
+cc_shared_library(
+    name = "mysql_storage",
+    srcs = [
+        "mysql_api.cc",
+        "mysql_storage.cc",
+    ],
+    hdrs = [
+        "api.h",
+        "mysql_storage.h",
+    ],
+    copts = ["-I/usr/include/mysql"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":database_config",
+        "//storage:storage_api",
+        "@com_google_absl//absl/strings",
+        "@mysqlxx",
+    ],
+)
+
+cc_shared_library(
+    name = "psql_storage",
+    srcs = [
+        "psql_api.cc",
+        "psql_storage.cc",
+    ],
+    hdrs = [
+        "api.h",
+        "psql_storage.h",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":database_config",
+        "//storage:storage_api",
+        "@com_google_absl//absl/strings",
+        "@pqxx",
+    ],
+)

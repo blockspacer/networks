@@ -1,0 +1,32 @@
+load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar")
+
+pkg_tar(
+    name = "server",
+    extension = "tar.xz",
+    mode = "0755",
+    package_dir = "/usr/bin",
+    srcs = ["//backend/server:chat.server"],
+)
+
+pkg_tar(
+    name = "storage",
+    extension = "tar.xz",
+    mode = "0755",
+    package_dir = "/usr/lib",
+    srcs = [
+        "//storage/database:libmysql_storage.so",
+        "//storage/database:libpsql_storage.so",
+        "//storage/in_memory:libin_memory_storage.so",
+    ],
+)
+
+
+pkg_tar(
+    name = "backend",
+    extension = "tar.xz",
+    mode = "0755",
+    deps = [
+        ":server",
+        ":storage"
+    ]
+)

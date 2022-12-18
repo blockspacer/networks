@@ -1,0 +1,15 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "pqxx",
+    srcs = glob([
+        "src/*.cxx",
+        "src/*.hxx",
+    ]),
+    hdrs = glob(["include/**/*"]),
+    linkopts = ["-lpq"],
+    linkstatic = True,
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    copts = ["-I/usr/include/postgresql"],
+)

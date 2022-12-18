@@ -1,0 +1,190 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+cc_test(
+    name = "test.core.assert",
+    srcs = ["assert_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.at_exit",
+    srcs = ["at_exit_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.atomic",
+    srcs = ["atomic_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.backtrace",
+    srcs = ["backtrace_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.exception",
+    srcs = ["exception_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.guard",
+    srcs = ["guard_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.intrusive_list",
+    srcs = ["intrusive_list_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.intrusive_ptr",
+    srcs = ["intrusive_ptr_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.scope",
+    srcs = ["scope_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.singleton",
+    srcs = ["singleton_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.spinlock",
+    srcs = ["spinlock_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.thread",
+    srcs = ["thread_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.thread_factory",
+    srcs = ["thread_factory_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.thread_pool",
+    srcs = ["thread_pool_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.mutex",
+    srcs = ["mutex_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.condvar",
+    srcs = ["condvar_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.event",
+    srcs = ["event_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.async",
+    srcs = ["async_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.future",
+    srcs = ["future_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.array_ref",
+    srcs = ["array_ref_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test.core.tls_ut",
+    srcs = ["tls_ut.cc"],
+    deps = [
+        "//core",
+        "@com_google_googletest//:gtest_main",
+    ],
+)

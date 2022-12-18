@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "proto/from.proto";
+import "proto/receive.proto";
+import "proto/send.proto";
+
+package proto;
+
+service ChatRpc {
+  rpc SendMessage(SendRequest) returns (SendResponse);
+
+  rpc ReceiveMessage(ReceiveRequest) returns (ReceiveResponse);
+
+  rpc SendedMessages(FromRequest) returns (FromResponse);
+}

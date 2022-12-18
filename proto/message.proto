@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+message Message {
+  uint64 message_uid = 1;
+  string from = 2;
+  repeated string to = 3;
+  uint64 send_ts = 4;
+  string message = 5;
+  repeated string reply = 6;
+}
