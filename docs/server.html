@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Chat Server</title>
+  </head>
+  <body>
+    <p>HOW TO BUILD</p>
+   
+    <p>Requirements: for ubuntu 22 use xz-utils python-is-python3 gcc g++ libpq-dev libmysqlclient-dev</p>
+   
+    <p>compile: <code>./bazel_build //...</code> will produce archive <code>bazel-bin/pkg/server.tar.xz</code> </p>
+   
+    <p>HOW TO START</p>
+   
+    <p>server config <a href="https://github.com/sazikov-ad/networks/blob/main/deploy/server_config.ini">example</a></p>
+    <p>db config <a href="https://github.com/sazikov-ad/networks/blob/main/deploy/pg_config.ini">example</a></p>
+    <p> running server: <code>/usr/bin/chat.server --config server_config.ini</code>
+   
+    <p>HOW TO USE IN DOCKER: </p>
+    <p>docker compose file could be found <a href="https://github.com/sazikov-ad/networks/tree/main/deploy">here</a>; it starts pg and server inside containers</p>
+
+    <p> HOW TO CONNECT: </p>
+    <p> you can build client (located <a href="https://github.com/sazikov-ad/networks/tree/main/client/client">here</a>) using go build</p>
+    
+    <p>to start it you should place .chat.yml config file in your home directory. config content: </p>
+    <code class="codeblock">
+        config_dir: /home/sazikov-a/.chat.cfg <br>
+        server_poll_backoff: 2 <br>
+        server_host: 127.0.0.1 <br>
+        server_port: 37516 <br>
+    </code>
+    <p> in that file you should specify server host and port, directory for storing some data and server polling time in seconds</p>
+</html>
+
