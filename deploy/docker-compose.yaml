@@ -1,6 +1,14 @@
 version: '3.0'
 
 services:
+  backend:
+    build: .
+    container_name: backend
+    tty: true
+    links:
+     - "messages_database:messages_database"
+    ports:
+     - 1234:1234
   messages_database:
     image: postgres
     container_name: messages_database
