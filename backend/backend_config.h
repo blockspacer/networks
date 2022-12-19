@@ -13,6 +13,7 @@ struct Config {
   size_t threads_num;
 
   std::string pid_file;
+  std::string host;
   uint64_t port;
 
   storage::Config storage_config;

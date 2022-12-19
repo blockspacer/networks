@@ -16,6 +16,7 @@ backend::Config backend::LoadFromFile(std::string_view file) {
     auto server_config = inicpp::parser::load_file(std::string(file));
     result.threads_num = server_config["server"]["threads"].get<size_t>();
     result.pid_file = std::filesystem::absolute(server_config["server"]["pid"].get<std::string>()).string();
+    result.host = server_config["server"]["host"].get<std::string>();
     result.port = server_config["server"]["port"].get<uint64_t>();
 
     result.storage_config.storage_dll = server_config["storage"]["storage_library"].get<std::string>();

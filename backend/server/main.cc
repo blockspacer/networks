@@ -73,8 +73,8 @@ int main(int argc, char** argv) {
 
   auto server = backend::RpcServer(config.threads_num, std::move(storage));
 
-  server.Start(":" + std::to_string(config.port));
-  chat_server_log("Server is listening on port: " + std::to_string(config.port));
+  server.Start(config.host + ":" + std::to_string(config.port));
+  chat_server_log("Server is listening on " + config.host + ":" + std::to_string(config.port));
 
   RegisterSignalHandlers(&server);
   server.WaitForStop();
