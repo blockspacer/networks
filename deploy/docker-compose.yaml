@@ -5,19 +5,19 @@ services:
     build: .
     container_name: backend
     tty: true
-    # links:
-    #  - "messages_database:messages_database"
+    links:
+     - "messages_database:messages_database"
     ports:
      - "37516:37516"
-  # messages_database:
-  #   image: postgres
-  #   container_name: messages_database
-  #   restart: always
-  #   environment:
-  #     POSTGRES_DB: messages
-  #     POSTGRES_USER: user
-  #     POSTGRES_PASSWORD: user_password
-  #   ports:
-  #    - 5432:5432
-  #   volumes:
-  #     - ./pg_migrations:/docker-entrypoint-initdb.d
+  messages_database:
+    image: postgres
+    container_name: messages_database
+    restart: always
+    environment:
+      POSTGRES_DB: messages
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user_password
+    ports:
+     - 5432:5432
+    volumes:
+      - ./pg_migrations:/docker-entrypoint-initdb.d
