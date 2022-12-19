@@ -21,4 +21,5 @@ COPY --from=0 /out/backend.tar.xz ./
 ADD pg_config.ini .
 ADD server_config.ini .
 RUN tar -xf backend.tar.xz && rm backend.tar.xz
+RUN mkdir -p /backend/work/logs && ln -sf /dev/stderr /backend/work/logs/server.log
 CMD ["/backend/usr/bin/chat.server", "--config", "/backend/server_config.ini"]

@@ -5,6 +5,8 @@ import "proto/status.proto";
 
 package proto;
 
+option go_package = "github.com/sazikov-ad/networks/proto";
+
 message FromRequest {
     string user = 1;
 };

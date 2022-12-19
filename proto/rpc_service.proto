@@ -6,6 +6,8 @@ import "proto/send.proto";
 
 package proto;
 
+option go_package = "github.com/sazikov-ad/networks/proto";
+
 service ChatRpc {
   rpc SendMessage(SendRequest) returns (SendResponse);
 

@@ -8,6 +8,7 @@ cc_library(
     visibility = ["//backend:__subpackages__"],
     deps = [
         "@com_github_grpc_grpc//:grpc++",
+        "@com_github_grpc_grpc//:grpc++_reflection",
         "@inicpp",
         "//proto:rpc_service",
         "//storage:storage_api",
